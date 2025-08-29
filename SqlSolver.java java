@@ -1,0 +1,35 @@
+package com.bajajfinserv.webhookqualifier.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class SqlSolver {
+    
+    public String solveProblem(String regNo) {
+        // Extract last two digits
+        String lastTwoDigits = regNo.substring(regNo.length() - 2);
+        int lastTwoDigitsNum = Integer.parseInt(lastTwoDigits);
+        
+        if (lastTwoDigitsNum % 2 == 1) {
+            // Odd - Question 1
+            return solveQuestion1();
+        } else {
+            // Even - Question 2  
+            return solveQuestion2();
+        }
+    }
+    
+    private String solveQuestion1() {
+        // Based on typical SQL problems for such assessments
+        // This is a placeholder - you'll need to replace with actual solution
+        // after accessing the Google Drive link for Question 1
+        return "SELECT * FROM employees WHERE salary > (SELECT AVG(salary) FROM employees)";
+    }
+    
+    private String solveQuestion2() {
+        // Based on typical SQL problems for such assessments
+        // This is a placeholder - you'll need to replace with actual solution
+        // after accessing the Google Drive link for Question 2
+        return "SELECT department, COUNT(*) as emp_count FROM employees GROUP BY department HAVING COUNT(*) > 5";
+    }
+}
